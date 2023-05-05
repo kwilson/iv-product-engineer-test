@@ -1,0 +1,23 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.categories {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.filter {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterInput {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  text-align: center;
+}
