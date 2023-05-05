@@ -5,9 +5,13 @@ import styles from "./CategorySelector.module.css";
 
 interface CategorySelectorProps {
   onSelect: (category: string) => void;
+  selectedValue: string;
 }
 
-export function CategorySelector({ onSelect }: CategorySelectorProps) {
+export function CategorySelector({
+  selectedValue,
+  onSelect,
+}: CategorySelectorProps) {
   const [filter, setFilter] = useState("");
   const { categories, isLoading, error, refetch } = useCategories();
   const filteredCategories = useMemo(
@@ -59,7 +63,11 @@ export function CategorySelector({ onSelect }: CategorySelectorProps) {
         <ul className={styles.categories}>
           {filteredCategories.map(({ name }) => (
             <li key={name}>
-              <CategoryButton name={name} onClick={() => onSelect(name)} />
+              <CategoryButton
+                name={name}
+                onClick={() => onSelect(name)}
+                selected={name === selectedValue}
+              />
             </li>
           ))}
         </ul>
